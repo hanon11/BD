@@ -16,7 +16,7 @@ from proveedores
 where prv_nom LIKE 'e%' OR UPPER('e%');
 
 /*EJERCICIO 5*/
-select emp_nacimiento, YEAR(CURTIME())-YEAR(emp_nacimiento) 'age', round(datediff(curtime(), emp_nacimiento)/365.25,2) 'age2'
+select emp_nacimiento, YEAR(CURTIME()) - YEAR(emp_nacimiento) 'age', round(datediff(curtime(), emp_nacimiento)/365.25,2) 'age2'
 from empleados 
 where YEAR(CURTIME())-YEAR(emp_nacimiento) > 40;
 

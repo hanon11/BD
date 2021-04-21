@@ -89,13 +89,11 @@ where art_pc >
 	
 /*ejercicio 10*/
 select * from proveedores 
-where PRV_NUM in 
-	(
-    select VNT_ART from 
-    	(
+where PRV_NUM in (
+    select VNT_ART from (
         select VNT_ART, count(*) from ventas 
         group by vnt_art 
-        having count() >= ALL (select count() from ventas group by vnt_art)
-        )
-	);
+        having count(*) >= ALL (select count(*) from ventas group by vnt_art)
+    ) Alias
+);
 	
